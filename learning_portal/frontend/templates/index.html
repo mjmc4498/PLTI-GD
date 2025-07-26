@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="sidebar">
+    <a href="{{ url_for('index') }}">Mis Cursos</a>
+    <a href="#">Catálogo General</a>
+    <a href="#">Certificaciones</a>
+    <a href="#">Mi Perfil</a>
+</div>
+
+<div class="main-content">
+    <h1>Mis Cursos</h1>
+    <div id="course-cards" class="course-grid">
+        <!-- Las tarjetas de los cursos se insertarán aquí mediante JS -->
+    </div>
+</div>
+{% endblock %}

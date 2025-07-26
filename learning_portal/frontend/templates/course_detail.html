@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ course.name }}{% endblock %}
+
+{% block content %}
+<div class="sidebar">
+    <a href="{{ url_for('index') }}">Mis Cursos</a>
+    <a href="#">Catálogo General</a>
+    <a href="#">Certificaciones</a>
+    <a href="#">Mi Perfil</a>
+</div>
+
+<div class="main-content">
+    <h1>{{ course.name }}</h1>
+    <p>{{ course.description }}</p>
+    <p><strong>Instructor:</strong> {{ course.instructor }}</p>
+    <p><strong>Duración:</strong> {{ course.duration }} horas</p>
+
+    <h2>Módulos</h2>
+    <div class="modules-container">
+        {% for module in course.modules %}
+        <div class="module">
+            <h3>{{ module.title }}</h3>
+            <ul>
+                {% for lesson in module.lessons %}
+                <li><a href="#">{{ lesson.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
