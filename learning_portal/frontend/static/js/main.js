@@ -4,21 +4,28 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             const courseCards = document.getElementById('course-cards');
             data.forEach(course => {
+                const cardCol = document.createElement('div');
+                cardCol.className = 'col-md-4 mb-4';
+
                 const card = document.createElement('div');
-                card.className = 'course-card';
+                card.className = 'card h-100 shadow-sm course-card';
+
                 card.innerHTML = `
-                    <div class="course-card-content">
-                        <h3>${course.name}</h3>
-                        <p>${course.description}</p>
-                        <p><strong>Instructor:</strong> ${course.instructor}</p>
-                        <p><strong>Duración:</strong> ${course.duration} horas</p>
-                        <span class="status status-in_progress">En progreso</span>
+                    <div class="card-body">
+                        <h5 class="card-title">${course.name}</h5>
+                        <p class="card-text">${course.description}</p>
+                        <p class="card-text"><small class="text-muted">Instructor: ${course.instructor}</small></p>
+                        <p class="card-text"><small class="text-muted">Duración: ${course.duration} horas</small></p>
+                        <span class="badge bg-warning text-dark">En progreso</span>
                     </div>
                 `;
+
                 card.addEventListener('click', () => {
                     window.location.href = `/courses/${course.id}`;
                 });
-                courseCards.appendChild(card);
+
+                cardCol.appendChild(card);
+                courseCards.appendChild(cardCol);
             });
         });
 });

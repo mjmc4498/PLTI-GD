@@ -3,17 +3,30 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-<div class="sidebar">
-    <a href="{{ url_for('index') }}">Mis Cursos</a>
-    <a href="#">Catálogo General</a>
-    <a href="#">Certificaciones</a>
-    <a href="#">Mi Perfil</a>
-</div>
+<div class="d-flex">
+    <nav class="sidebar bg-dark vh-100 p-3">
+        <h4 class="text-white">Menú</h4>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{ url_for('index') }}">Mis Cursos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">Catálogo General</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">Certificaciones</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">Mi Perfil</a>
+            </li>
+        </ul>
+    </nav>
 
-<div class="main-content">
-    <h1>Mis Cursos</h1>
-    <div id="course-cards" class="course-grid">
-        <!-- Las tarjetas de los cursos se insertarán aquí mediante JS -->
-    </div>
+    <main class="main-content p-4">
+        <h1 class="mb-4">Mis Cursos</h1>
+        <div id="course-cards" class="row">
+            <!-- Las tarjetas de los cursos se insertarán aquí mediante JS -->
+        </div>
+    </main>
 </div>
 {% endblock %}
